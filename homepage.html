@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Web Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #7091e6;
+            color: white;
+            padding: 20px;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+            
+
+        }
+
+        footer {
+            background-color: #7091e6;
+            text-align: center;
+            padding: 5px 0;
+            position: relative;
+            width: 100%;
+            color: white;
+        }
+
+        footer a {
+            color: #024950;
+            text-decoration: none;
+        }
+
+        .datetime {
+            position: absolute;
+            top: 135px;
+            right: 35px;
+            color: #e64833;
+            font-size: 14px;
+          }
+      
+          .quote {
+            position: absolute;
+            top: 57%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #e64833;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #3d52a0;
+            text-align: center;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+          }
+          
+          
+
+        .form{
+            position: absolute;
+            top: 650px;
+            left: 650px;
+        }
+        .button{
+            background-color: #7091e6;
+            color: #fff;
+            border: 1;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: center; /* Center the button */
+            border-radius: 20px;
+        }
+        .inp{
+            border-radius:15px;
+                border:solid 2px;    
+                margin: 10px 5px;
+                
+            }
+        .inp:focus{
+                outline:solid 2px #7091e6;
+            }
+
+        h1 {
+            background-color: #3d52a0;
+            color: white;
+            padding: 20px;
+            font-family: Arial;
+            text-align: center;
+            margin: 0;
+        }
+        
+          
+    </style>
+</head>
+<body>
+    <h1>Chain Tech Network</h1>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="{{ url_for('display_data') }}">Registered Data</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main style="background-color: #ede8f5;">
+        <section id="about">
+            <div class="datetime">
+                <p style="color: #3d52a0">Date and Time: </p>
+                <p>{{ current_time }}</p>
+            </div>
+            <div class="quote">
+                <p>{{ quote }}</p>
+            </div>
+
+            <div>
+                <h2>Weather in {{city}} </h2>
+                <p> Temparature: {{ temperature }} C </p>
+                <p> Humidity: {{ humidity }}</p>
+                <p>Weather: {{ weather_description }}</p>
+            </div>
+
+        </section>
+        
+        <div class="form">
+        <form action="/submit" method="post">
+            <p> Want to be part of our team </p>
+            <label for="name">Name:</label>
+            <input class = "inp" type="text" id="name" name="name"><br><br>
+            <label for="email">Email:</label>
+            <input class = "inp" type="email" id="email" name="email"><br><br>
+            <input class = "button" type="submit" value="Submit">
+          </form>
+        
+        </div>
+
+
+    </main>
+    <section id="contact">
+    <footer>
+        <p>Copyright © 2024 Chain Tech Network</p>
+		<p style="color: white;">Contact us at <a style="color:white;"href="mailto:miryalaraghu369@gmail.com">miryalaraghu369@gmail.com</a></p>
+
+    </footer>
+</section>
+
+  
+
+</body>
+</html>
